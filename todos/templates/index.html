@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 
 {% block body %}
-  <h2>인덱스임</h2>
+<!-- {% for todo in todos %}
+  <h5>{{todo.due_date}} : {{todo.title}}</h5>
+  <a href="/todos/{{todo.id}}/detail/">더 보기</a>
+  <a href="/todos/{{todo.id}}/delete/">삭제</a>
+  <a href="/todos/{{todo.id}}/edit/">수정</a>
+{% endfor %} -->
+
   {% for todo in todos %}
-    <h5>{{todo.due_date}} : {{todo.title}}</h5>
-    <a href="/todos/{{todo.id}}/delete/">삭제</a>
-    <a href="/todos/{{todo.id}}/edit/">수정</a>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">{{todo.title}}</h1>
+        <p class="lead">{{todo.due_date}}</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="/todos/{{todo.id}}/detail/" role="button">Detail</a>
+      </div>
+    </div>
   {% endfor %}
 {% endblock%}
